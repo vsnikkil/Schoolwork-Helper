@@ -1,0 +1,7 @@
+<% if (messages && Array.isArray(messages)) {
+  messages.forEach(text=>{%>
+    <div class='message'>
+      <%= text %>
+    </div>
+  <%});
+} %>
