@@ -1,5 +1,8 @@
 const express = require('express');
 const ejs = require('ejs');
+const path = require('path');
+
+function fromHere(url){return path.resolve(__dirname,url)};
 
 // set the view engine to ejs
 
@@ -7,7 +10,7 @@ module.exports = function(app){
   app.set('view engine', 'ejs');
   // index page
   app.get('/', (req, res)=>{
-      res.render('../src/views/homepage');
+      res.render(fromHere('../src/views/homepage'));
   });
   app.use(express.static(fromHere('./public')));
   ['login','signup'].forEach(url=>{
