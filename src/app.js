@@ -1,18 +1,13 @@
 const express = require('express');
 const ejs = require('ejs');
-const path = require('path');
 
-function fromHere(filePath){
-  return path.resolve(__dirname,filePath);
-}
 // set the view engine to ejs
-
 
 module.exports = function(app){
   app.set('view engine', 'ejs');
   // index page
   app.get('/', (req, res)=>{
-      res.render(fromHere('./views/homepage'));
+      res.render('../src/views/homepage');
   });
 
   app.get('/subjects', (req, res)=>{
