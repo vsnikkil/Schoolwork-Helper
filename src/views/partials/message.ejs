@@ -1,5 +1,5 @@
-<% if (messages && Array.isArray(messages)) {
-  messages.forEach(text=>{%>
+<% if (req.query.message && typeof req.query.message == 'string') {
+  req.query.message.split(',').forEach(text=>{%>
     <div class='message'>
       <%= text %>
     </div>
