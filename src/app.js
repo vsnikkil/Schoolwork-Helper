@@ -9,6 +9,11 @@ function fromHere(url){return path.resolve(__dirname,url)};
 module.exports = function(app){
   app.set('view engine', 'ejs');
   // index page
+  app.use((req,res,next)=>{
+    res.locals.req = req;
+    res.locals.res = res;
+    next();
+  })
   app.get('/', (req, res)=>{
       res.render(fromHere('../src/views/homepage'));
   });
