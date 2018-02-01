@@ -1,7 +1,7 @@
 #homepage-info-text{
   margin-left: 20%;
   margin-right: 20%;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
   background-color:
 }
@@ -14,7 +14,9 @@
   display: block;
 }
 
-
+.features-section{
+  background-color: LightGray !important;
+}
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
@@ -47,7 +49,7 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  margin-top: -30%;
+  margin-top: -33%;
 }
 
 span {
