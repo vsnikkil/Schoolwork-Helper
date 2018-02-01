@@ -2,7 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const forceSSL = require('express-force-ssl');
 const bodyParser = require('body-parser');
-//const routing = require('./routing');
+const routing = require('./routing');
 const cookieParser = require('cookie-parser');
 const getModels = require('./models');
 const httpsRedirect = require('express-https-redirect');
@@ -22,7 +22,7 @@ function createApp(){
       app.use(bodyParser.json());
       app.use(cookieParser());
       app.use(compression());
-      //routing(app, models);
+      routing(app, models);
 
       resolve(app);
     }).catch(err => {

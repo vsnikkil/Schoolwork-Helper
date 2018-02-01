@@ -1,11 +1,5 @@
-const sections = ['background','static','frontPage'].map(name=>require('./'+name));
-const post = require('./post');
-const frontPages = require('./frontPages');
-const categories = require('./categories');
+const sections = ['background','static'].map(name=>require('./'+name));
 
 module.exports = function(app,models){
-  sections.forEach(section=> section(app,models));
-  const postNumber = frontPages(app,models);
-  const addCategories = categories(app,models);
-  post(app,models,addCategories,postNumber);
+  sections.forEach(section => section(app,models));
 }
