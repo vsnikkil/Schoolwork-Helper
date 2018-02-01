@@ -3,6 +3,7 @@ const giveSession = require('../../functions/giveSession');
 const decodeAuth = require('../../functions/decodeAuth');
 const bcrypt = require('bcrypt');
 
+
 function login(router, models) {
   const {
     User
@@ -29,7 +30,7 @@ function login(router, models) {
             };
             res.redirect('/');
           }).catch(err=>{
-            res.status(500).send('Internal Error');
+            res.redirect('/login?message=Internal+Error');
           });
         } else {
           res.status(401).send('Unauthorized');
