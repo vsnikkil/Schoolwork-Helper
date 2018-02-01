@@ -10,9 +10,10 @@
 
 <body>
   <div class="container-fluid">
-    <form action='/auth/login'>
+    <form action='/auth/signup' method='POST'>
       <input type='text' placeholder='Username' name='username'>
       <input type='password' placeholder='Password' name='password'>
+      <input type='email' placeholder='Email' name='email'>
       <input type='submit' value='Log In'>
       <input type="hidden" name="resulturl" value="/">
     </form>

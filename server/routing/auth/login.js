@@ -8,10 +8,9 @@ function login(router, models) {
     User
   } = models;
   router.get('/login', (req, res) => {
-    const auth = decodeAuth(req);
-    if (!auth || auth.length != 2) return res.status(400).send('Malformed Request');
-    const username = auth[0].toLowerCase(),
-      password = auth[1];
+    if (!sanitize(req.query.username,'string') || !sanitize(req.query.password,'string')) return res.status(400).send('Malformed Request');
+    let {username,password} = req.query;
+    username = username.split(' ').join('');
     if (username.length < 3 || password.length < 7) return res.status(400).send('Malformed Request');
     User.findOne({
       username
@@ -28,7 +27,7 @@ function login(router, models) {
               displayname: user.displayname,
               admin: user.admin
             };
-            res.status(200).json(output);
+            res.redirect('/');
           }).catch(err=>{
             res.status(500).send('Internal Error');
           });
