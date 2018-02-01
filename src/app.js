@@ -14,6 +14,7 @@ module.exports = function(app){
   app.get('/', (req, res)=>{
       res.render(fromHere('./views/homepage'));
   });
+  app.use(express.static(fromHere('./public')));
   ['login','signup'].forEach(url=>{
     const viewPath = fromHere('./views/'+url);
     app.get('/'+url,(req,res)=>{
