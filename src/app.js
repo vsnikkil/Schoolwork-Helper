@@ -7,6 +7,7 @@ function fromHere(url){return path.resolve(__dirname,url)};
 // set the view engine to ejs
 
 module.exports = function(app){
+  app.use(express.static(__dirname + '/public'));
   app.set('view engine', 'ejs');
   // index page
   app.use((req,res,next)=>{
