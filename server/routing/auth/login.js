@@ -17,10 +17,10 @@ function login(router, models) {
       username
     }, (err, user) => {
       if (err) throw err;
-      if (!user) return res.status(401).send('Unauthorized');
-      if (user.banned === true) return res.status(403).send('Banned');
+      if (!user) return res.redirect('/login?message=Unauthorized');
+      if (user.banned === true) return res.redirect('/login?message=Banned');
       bcrypt.compare(password, user.hash, (err, match) => {
-        if (err) return res.status(500).send('Internal Error');
+        if (err) return res.redirect('/login?message=Internal+Error');
         if (match === true) {
           giveSession(res, user, models).then(()=>{
             const output = {
@@ -33,7 +33,7 @@ function login(router, models) {
             res.redirect('/login?message=Internal+Error');
           });
         } else {
-          res.status(401).send('Unauthorized');
+          res.redirect('/login?message=Unauthorized');
         }
       });
     });
