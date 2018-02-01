@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>Signup</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <header>
   <% include ./partials/header %>
+  <script src="../public/index.js"></script>
 </header>
 
 <body>
@@ -18,12 +18,9 @@
         <input class="form-control" type='text' placeholder='Username' name='username' required autofocus>
         <label for="inputEmail" class="sr-only">Email</label>
         <input class="form-control" type='email' placeholder='Email' name='email' required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input class="form-control" type='password' placeholder='Password' name='password' required>
+        <label style="padding-top: 100px;" for="inputPassword" class="sr-only">Password</label>
+        <input  class="form-control" type='password' placeholder='Password' name='password' required>
         <button type='submit' value='Log In' class="btn btn-lg btn-primary btn-block">Sign up</button>
       </form>
-
-  
-<script src="../js/index.js"></script>
 
 </html>
