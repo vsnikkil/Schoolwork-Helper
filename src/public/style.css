@@ -1,13 +1,36 @@
+#homepage-info-header{
+  text-align: center;
+  font-size: 50px;
+  color: #000000;
+  font-family: Optima, sans-serif;
+  padding-top: 2%;
+}
+
 #homepage-info-text{
   margin-left: 20%;
   margin-right: 20%;
   font-size: 24px;
   text-align: center;
-  background-color:
+  font-family: Optima, sans-serif;
+  color: #000000;
+}
+
+.intro-section{
+  background-image: url("http://www.cutehdwallpapers.com/uploads/large/most-popular-wallpapers/lollipop-abstract-wallpaper-4k.jpg");
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  height: 900px;
+  margin-left: -15px;
+  margin-right: -11px;
 }
 
 .glyphicons{
-  width: 200px;
+  
+  width: 175px;
   display: inline-block;
   text-align: center;
   margin:0 auto;
