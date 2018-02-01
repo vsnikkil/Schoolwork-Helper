@@ -13,14 +13,13 @@ function signup(router, models) {
       password,
       email
     } = req.body;
-    console.log(req.body);
-    if (!sanitize(req.body,{username:'string',password:'string',email:'string'})) return res.status(400).send('Malformed Request');
+    if (!sanitize(req.body,{username:'string',password:'string',email:'string'})) return res.redirect('/signup?message=Malformed+Request');
     username = username.split(' ').join('');
     const displayname = username;
     username = username.toLowerCase();
-    if (username.length < 3 || password.length < 7) return res.status(400).send('Invalid Request');
+    if (username.length < 3 || password.length < 7) return res.redirect('/signup?message=Invalid+Request');
     email = getValidEmail(email);
-    if (!email) return res.status(400).send('Invalid Request');
+    if (!email) return res.redirect('/signup?message=Invalid+Request');
     bcrypt.hash(password, 12, (err, hash) => {
       if (err) throw err;
       const createUser = new User({
@@ -30,7 +29,7 @@ function signup(router, models) {
         email
       });
       createUser.save(err => {
-        if (err) return res.status(500).send('Internal Error');
+        if (err) return res.redirect('/signup?message=Internal+Error');
         const userOut = {
           username
         };
@@ -42,7 +41,7 @@ function signup(router, models) {
           };
           res.redirect('/');
         }).catch(err=>{
-          res.status(500).send('Internal Error');
+          res.redirect('/signup?message=Internal+Error');
         });
       });
     });
