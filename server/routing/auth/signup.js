@@ -30,7 +30,7 @@ function signup(router, models) {
         email
       });
       createUser.save(err => {
-        if (err) throw err;
+        if (err) return res.status(500).send('Internal Error');
         const userOut = {
           username
         };
