@@ -14,6 +14,12 @@ module.exports = function(app){
   app.get('/', (req, res)=>{
       res.render(fromHere('./views/homepage'));
   });
+  ['login','signup'].forEach(url=>{
+    const viewPath = fromHere('./views/'+url);
+    app.get('/'+url,(req,res)=>{
+      res.render(viewPath);
+    });
+  });
 
   app.get('/subjects', (req, res)=>{
       res.render('')
@@ -32,14 +38,6 @@ module.exports = function(app){
   })
 
   app.get('/donate', (req, res)=>{
-      res.render('')
-  })
-
-  app.get('/login', (req, res)=>{
-      res.render('')
-  })
-
-  app.get('/signup', (req, res)=>{
       res.render('')
   })
 }
