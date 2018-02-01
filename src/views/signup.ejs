@@ -17,6 +17,19 @@
       <input type='submit' value='Log In'>
     </form>
   </div>
+
+  <div class="container-fluid">
+      <form style="margin-right: 30%; margin-left: 30%" class="form-signin" action='/auth/signup'>
+          <h2 class="form-signin-heading">Please sign in</h2>
+          <label for="inputEmail" class="sr-only">Username</label>
+          <input class="form-control" type='text' placeholder='Username' name='username' required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input class="form-control" type='password' placeholder='Password' name='password' required>
+          <button type='submit' value='Log In' class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <label for="inputPassword" class="sr-only">Email</label>
+          <input class="form-control" type='email' placeholder='Email' name='email' required>
+        </form>
+        </div>
 <script src="../js/index.js"></script>
 
 </html>
