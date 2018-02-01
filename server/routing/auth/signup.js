@@ -8,16 +8,13 @@ function signup(router, models) {
     User
   } = models;
   router.post('/signup', (req, res) => {
-    if (!sanitize(req.body, {
-        username: 'string',
-        password: 'string',
-        email: 'string'
-      })) return res.status(400).send('Invalid Request');
     let {
       username,
       password,
       email
     } = req.body;
+    console.log(req.body);
+    if (!sanitize(req.body,{username:'string',password:'string',email:'string'})) return res.status(400).send('Malformed Request');
     username = username.split(' ').join('');
     const displayname = username;
     username = username.toLowerCase();
@@ -43,7 +40,7 @@ function signup(router, models) {
             displayname: createUser.displayname,
             admin: createUser.admin
           };
-          res.status(200).json(output);
+          res.redirect('/');
         }).catch(err=>{
           res.status(500).send('Internal Error');
         });

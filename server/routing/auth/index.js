@@ -1,7 +1,6 @@
 const RateLimit = require('express-rate-limit');
 const express = require('express');
 const endpoints = ['login','logout','signup'].map(endpoint=>require('./'+endpoint));
-const validate = require('./validate');
 
 const limiter = new RateLimit({
   windowMs: 24*60*60*1000, // Day
@@ -11,7 +10,6 @@ const limiter = new RateLimit({
 
 module.exports = function(app,models){
   const auth = express.Router();
-  validate(auth,models);
   auth.use(limiter);
   endpoints.forEach(endpoint=>endpoint(auth,models));
   app.use('/auth',auth);
