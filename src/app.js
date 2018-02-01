@@ -7,7 +7,7 @@ module.exports = function(app){
   app.set('view engine', 'ejs');
   // index page
   app.get('/', (req, res)=>{
-      res.render('../src/views/homepage');
+      res.render('./views/homepage');
   });
 
   app.get('/subjects', (req, res)=>{
