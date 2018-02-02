@@ -31,7 +31,6 @@
 }
 
 .glyphicons{
-  
   width: 175px;
   display: inline-block;
   text-align: center;
@@ -40,7 +39,14 @@
 }
 
 .features-section{
-  background-color: LightGray !important;
+  background-image: url("https://i.redd.it/6u2aetjjv7jz.png");
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:stretch;
+  background-position:center; 
+  height: 850px;
 }
 
 @media screen and (max-width: 600px) {
@@ -74,7 +80,13 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  margin-top: -33%;
+  margin-top: -40%;
+}
+
+img{
+  width: 60%;
+  display: block;
+    margin: 0 auto;
 }
 
 span {
