@@ -30,6 +30,7 @@
     "express-force-ssl": "^0.3.2",
     "express-https-redirect": "^1.0.0",
     "express-rate-limit": "^2.11.0",
+    "google": "^2.1.0",
     "helmet": "^3.10.0",
     "http2": "^3.3.7",
     "letsencrypt-express": "^2.0.6",

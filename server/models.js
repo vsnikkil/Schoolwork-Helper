@@ -8,7 +8,7 @@ const config = Object.assign({
 }, require('./config').db || undefined);
 const URI = `mongodb://${config.host}:${config.port}/${config.name}`;
 
-function getModels(){
+function getModels() {
   return new Promise((resolve, reject) => {
     mongoose.connect(URI, err => {
       if (err) {

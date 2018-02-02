@@ -8,8 +8,8 @@ const getModels = require('./models');
 const httpsRedirect = require('express-https-redirect');
 const compression = require('compression')
 
-function createApp(){
-  return new Promise((resolve,reject)=>{
+function createApp() {
+  return new Promise((resolve, reject) => {
     getModels().then(models => {
 
       const app = express();
@@ -20,7 +20,7 @@ function createApp(){
         app.use(httpsRedirect);
       }
       app.use(bodyParser.json());
-      app.use(bodyParser.urlencoded({extended: true})); 
+      app.use(bodyParser.urlencoded({ extended: true }));
       app.use(cookieParser());
       app.use(compression());
       routing(app, models);
