@@ -1,5 +1,4 @@
 const express = require('express')
-const ejs = require('ejs')
 const path = require('path')
 
 function fromHere (url) { return path.resolve(__dirname, url) };
@@ -8,7 +7,6 @@ function fromHere (url) { return path.resolve(__dirname, url) };
 
 module.exports = function (app) {
   app.use(express.static(fromHere('/public')))
-  app.set('view engine', 'ejs')
 
   app.use((req, res, next) => {
     res.locals.req = req

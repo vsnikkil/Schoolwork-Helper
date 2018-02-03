@@ -8,6 +8,8 @@
     "dev": "node index --dev",
     "prod": "node index --prod",
     "start": "npm run dev",
+    "watch": "npm run build -- --watch",
+    "build": "webpack --progress",
     "lint": "standard"
   },
   "repository": {
@@ -35,9 +37,21 @@
     "helmet": "^3.10.0",
     "http2": "^3.3.7",
     "letsencrypt-express": "^2.0.6",
-    "mongoose": "^5.0.2"
+    "mongoose": "^5.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
-    "standard": "^10.0.3"
+    "@babel/core": "^7.0.0-beta.39",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "babel-preset-react": "^7.0.0-beta.3",
+    "file-loader": "^1.1.6",
+    "standard": "^10.0.3",
+    "webpack": "^3.10.0"
   }
 }

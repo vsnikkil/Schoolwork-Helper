@@ -1,3 +1,5 @@
-$(window).scroll(function () {
-  $('.intro-section').css('opacity', 1 - $(window).scrollTop() / 650)
-})
+import './index.html'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from 'Components/App'
+
