@@ -1,5 +1,5 @@
-const sections = ['background','static'].map(name=>require('./'+name));
+const sections = ['background', 'static'].map(name => require('./' + name))
 
-module.exports = function(app,models){
-  sections.forEach(section => section(app,models));
+module.exports = function (app, models) {
+  sections.forEach(section => section(app, models))
 }

@@ -1,35 +1,34 @@
-const express = require('express');
-const helmet = require('helmet');
-const forceSSL = require('express-force-ssl');
-const bodyParser = require('body-parser');
-const routing = require('./routing');
-const cookieParser = require('cookie-parser');
-const getModels = require('./models');
-const httpsRedirect = require('express-https-redirect');
+const express = require('express')
+const helmet = require('helmet')
+const forceSSL = require('express-force-ssl')
+const bodyParser = require('body-parser')
+const routing = require('./routing')
+const cookieParser = require('cookie-parser')
+const getModels = require('./models')
+const httpsRedirect = require('express-https-redirect')
 const compression = require('compression')
 
-function createApp() {
+function createApp () {
   return new Promise((resolve, reject) => {
     getModels().then(models => {
+      const app = express()
 
-      const app = express();
-
-      //app.use(forceSSL);
-      app.use(helmet());
+      // app.use(forceSSL);
+      app.use(helmet())
       if (process.env.NODE_ENV === 'production') {
-        app.use(httpsRedirect);
+        app.use(httpsRedirect)
       }
-      app.use(bodyParser.json());
-      app.use(bodyParser.urlencoded({ extended: true }));
-      app.use(cookieParser());
-      app.use(compression());
-      routing(app, models);
+      app.use(bodyParser.json())
+      app.use(bodyParser.urlencoded({ extended: true }))
+      app.use(cookieParser())
+      app.use(compression())
+      routing(app, models)
 
-      resolve(app);
+      resolve(app)
     }).catch(err => {
-      reject(err);
-    });
-  });
+      reject(err)
+    })
+  })
 }
 
-module.exports = createApp;
+module.exports = createApp

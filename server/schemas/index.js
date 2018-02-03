@@ -1,8 +1,8 @@
-const schemas = ['user', 'session'];
+const schemas = ['user', 'session']
 
-const output = {};
+const output = {}
 schemas.forEach(filename => {
   output[filename] = require('./' + filename)
-});
+})
 
-module.exports = output;
+module.exports = output
